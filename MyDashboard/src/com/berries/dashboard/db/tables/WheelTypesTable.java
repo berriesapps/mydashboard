@@ -43,25 +43,14 @@ public class WheelTypesTable {
 	private static final String DB_INSERT_CMD =   "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, item6, item7, count)" ;
 	
 	private static final String DATABASE_INSERT1 = DB_INSERT_CMD +
-			" VALUES ('Whole Life', 'Environment', 'Career', 'Money', 'Health', 'Friends&Family', 'Significant Other','Personal Growth','Recreation/Fun', 8);";
-	private static final String DATABASE_INSERT2 = DB_INSERT_CMD +
-			" VALUES ('Mobile Developer Skills', 'Android', 'Java', 'iOS', 'ObjectiveC', 'C/C++', 'Multithreading', 'Design Patterns', 'HTML5/CSS/Javascript', 8);";
-	private static final String DATABASE_INSERT3 = DB_INSERT_CMD +
-			" VALUES ('Developer Soft Skills', 'Communication', 'Fast-Learning', 'Team Player', 'Creative thinking', 'Problem Solving', 'Motivation', 'Independence', '', 7);";
-	private static final String DATABASE_INSERT4 = DB_INSERT_CMD +
-			" VALUES ('Program Health', 'OO Design', 'Short and Clear Code','Documentation', 'Input Validation','Thread Happy', 'Performance', 'Memory Usage',  'Battery Consumption', 8);";
-
-
-/*	private static final String DATABASE_INSERT1 = "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, item6, item7, count)" +
-			" VALUES ('Life Wheel', 'Environment', 'Career', 'Money', 'Health', 'Friends', 'Romance','Personal Growth','Recreation', 8);";
+			" VALUES ('Wheel of Life', 'Environment', 'Career', 'Money', 'Health', 'Friends&Family', 'Significant Other','Personal Growth','Recreation/Fun', 8);";
 	private static final String DATABASE_INSERT2 = "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, item6, item7, count)" +
-			" VALUES ('Management Skills', 'Decision Making', 'Communication', 'Results', 'Managing Change', 'Strategic Planning', 'Customer Service', 'Team Development', 'Risk Taking',8);";
-	private static final String DATABASE_INSERT3 = "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, count)" +
-			" VALUES ('Android Skills', 'Android', 'Java', 'OO Design', 'Communication', 'Motivation', 'FastLearning', 6);";
-	private static final String DATABASE_INSERT4 = "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, item6, item7, count)" +
-			" VALUES ('My Mood Today', 'Happy', 'Optimistic', 'Motivated', 'Confident', 'Excited','Playful','Grateful', 'Loved', 8);";
-*/
-	
+			" VALUES ('Keeping Healthy', 'Healthy Eating', 'Drinking Water', 'Exercise', 'Meditation', 'Sleep Well', 'Me time/Hobbies','','', 6);";	
+	private static final String DATABASE_INSERT3 = "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, item6, item7, count)" +
+			" VALUES ('My Mood Today', 'Happy', 'Optimistic', 'Motivated', 'Confident', 'Excited','Playful','Loved', 'Relaxed', 8);";
+	private static final String DATABASE_INSERT4 = DB_INSERT_CMD +
+			" VALUES ('Working Skills', 'Communication', 'Fast-Learning', 'Team Player', 'Creativity', 'Problem Solving', 'Task Management', 'Independence', '', 7);";
+		
 
 	public static void onCreate(SQLiteDatabase database) {
 		StringBuilder sqlBuilder = new StringBuilder(DATABASE_CREATE_START);

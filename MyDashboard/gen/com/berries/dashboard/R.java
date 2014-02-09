@@ -197,17 +197,19 @@ containing a value of this type.
         public static final int social_send_now=0x7f02000a;
     }
     public static final class id {
-        public static final int WheelGroupView=0x7f0a0000;
-        public static final int WheelProgressView=0x7f0a0001;
-        public static final int action_add=0x7f0a000a;
-        public static final int action_help=0x7f0a0007;
-        public static final int action_save=0x7f0a0005;
-        public static final int action_show_progress=0x7f0a0006;
-        public static final int edit_wheel=0x7f0a0008;
-        public static final int gridview=0x7f0a0002;
-        public static final int list_item_label=0x7f0a0003;
-        public static final int remove_wheel=0x7f0a0009;
-        public static final int wheeltypes_grid_item_label=0x7f0a0004;
+        public static final int action_add=0x7f0a000c;
+        public static final int action_help=0x7f0a0009;
+        public static final int action_save=0x7f0a0007;
+        public static final int action_show_progress=0x7f0a0008;
+        public static final int date_saved=0x7f0a0001;
+        public static final int edit_wheel=0x7f0a000a;
+        public static final int gridview=0x7f0a0004;
+        public static final int list_item_label=0x7f0a0005;
+        public static final int list_title=0x7f0a0003;
+        public static final int remove_wheel=0x7f0a000b;
+        public static final int wheel_group_view=0x7f0a0000;
+        public static final int wheel_progress_view=0x7f0a0002;
+        public static final int wheeltypes_grid_item_label=0x7f0a0006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -239,10 +241,11 @@ containing a value of this type.
         public static final int activity_title_wheel_set_values=0x7f060002;
         public static final int activity_title_wheel_types=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int appointment_date_reached=0x7f060022;
-        public static final int appointment_title=0x7f060021;
+        public static final int appointment_date_reached=0x7f060024;
+        public static final int appointment_title=0x7f060023;
         public static final int confirmation_delete=0x7f060018;
         public static final int edit_wheel_title=0x7f060019;
+        public static final int empty_list_info=0x7f060025;
         public static final int help_add_new_wheel=0x7f060008;
         public static final int help_edit_wheel=0x7f060007;
         public static final int help_not_available=0x7f06000b;
@@ -251,10 +254,12 @@ containing a value of this type.
         public static final int help_wheel_types=0x7f060009;
         public static final int message_removed_wheel_fail=0x7f06001c;
         public static final int message_removed_wheel_success=0x7f06001b;
-        public static final int message_text_characters=0x7f060020;
-        public static final int message_text_empty=0x7f06001e;
-        public static final int message_text_exceed_characters=0x7f06001f;
+        public static final int message_text_characters=0x7f060022;
+        public static final int message_text_empty=0x7f060020;
+        public static final int message_text_exceed_characters=0x7f060021;
         public static final int message_values_saved=0x7f06001d;
+        public static final int message_values_saved_go_progress=0x7f06001e;
+        public static final int message_values_saved_title=0x7f06001f;
         public static final int new_wheel_default_Title=0x7f06001a;
         public static final int welcome_title=0x7f06000c;
     }

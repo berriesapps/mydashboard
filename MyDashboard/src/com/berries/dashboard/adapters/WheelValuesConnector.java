@@ -20,10 +20,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*/
+ */
 package com.berries.dashboard.adapters;
 
 import java.util.Calendar;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.support.v4.widget.SimpleCursorAdapter;
 
 import com.berries.dashboard.R;
 import com.berries.dashboard.db.WheelContentProvider;
@@ -31,26 +37,23 @@ import com.berries.dashboard.db.tables.Contract;
 import com.berries.dashboard.model.Wheel;
 import com.berries.dashboard.model.WheelItem;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.widget.Toast;
-
 /**
- * This class contains methods that connect between the WheelValues table to views displaying it
- * Use {@link #getAdapter(Context, int)} to retrieve an adapter that maps WheelValuesTable row structure to list view  
+ * This class contains methods that connect between the WheelValues table to
+ * views displaying it Use {@link #getAdapter(Context, int)} to retrieve an
+ * adapter that maps WheelValuesTable row structure to list view
  */
 public class WheelValuesConnector {
 
-	public static SimpleCursorAdapter getAdapter(Context context, int wheelNumOfItems){
-		String [] from = { Contract.COLUMN_DATE};
-		int [] to = { R.id.list_item_label };
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(context, R.layout.list_item, null, from, to, 0); 		
+	public static SimpleCursorAdapter getAdapter(Context context,
+			int wheelNumOfItems) {
+		String[] from = { Contract.COLUMN_DATE };
+		int[] to = { R.id.list_item_label };
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter(context,
+				R.layout.list_item, null, from, to, 0);
 		adapter.setViewBinder(new WheelValuesBinder(wheelNumOfItems));
 		return adapter;
 	}
 
-	
 	public static void saveWheelValues(Context context, Wheel wheel) {
 		// save the wheel values to the progress table
 		ContentValues values = new ContentValues();
@@ -61,11 +64,31 @@ public class WheelValuesConnector {
 		}
 		Calendar cal = Calendar.getInstance();
 		values.put(Contract.COLUMN_DATE, cal.getTimeInMillis());
-		context.getContentResolver().insert(WheelContentProvider.CONTENT_PROGRESS_SINGLE_URI, values);
-		Toast.makeText(context, R.string.message_values_saved, Toast.LENGTH_LONG).show();
-	}	
-	
+		context.getContentResolver().insert(
+				WheelContentProvider.CONTENT_PROGRESS_SINGLE_URI, values);
+	}
+
+	public static void setWheelValuesToLastSaved(Context context, Wheel wheel) {
+		Uri uri = WheelContentProvider.CONTENT_PROGRESS_SINGLE_URI;
+		String selection = Contract.COLUMN_TYPE_ID + "= ? ";
+		String[] selectionArgs = { String.valueOf(wheel.getTypeId()) };
+		String sortOrder = Contract.COLUMN_DATE + " DESC";
+		Cursor cursor = context.getContentResolver().query(uri, null,
+				selection, selectionArgs, sortOrder);
+		cursor.moveToFirst();
+		if (cursor != null && cursor.getCount() == 1) {
+			int numOfItems = wheel.getNumOfItems();
+			for (int column = 0; column < numOfItems; column++) {
+				int val = cursor.getInt(Contract.COLUMN_IDX_VAL0 + column);
+				wheel.getItemAt(column).setValue(val);
+			}
+			long timestamp = cursor.getLong(Contract.COLUMN_IDX_DATE);
+			wheel.setTimeSaved(timestamp);
+		}
+		cursor.close();
+	}
+
 	// don't want anyone to create an object of this class
-	private WheelValuesConnector(){		
+	private WheelValuesConnector() {
 	}
 }

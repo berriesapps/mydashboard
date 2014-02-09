@@ -6,8 +6,8 @@
     <string name="activity_title_wheel_set_values">Wheel View</string>    
     <string name="activity_title_wheel_edit_type">Click to Edit</string>    
     <string name="activity_title_wheel_add_new_type">New Wheel</string>
-    <string name="activity_title_show_progress">View Progress</string>        
-    <string name="help_set_values">Think about the different areas appearing on this wheel. How content do you feel in each area? Drag each area to mark from 1 to 10.</string>
+    <string name="activity_title_show_progress">View History</string>        
+    <string name="help_set_values">Think about the different items appearing on this wheel. How content do you feel in each area? Drag each area to mark from 1 to 10.</string>
     <string name="help_edit_wheel">Click on the title or any of the section to edit. Don\'t forget to save after you are done</string>    
 	<string name="help_add_new_wheel">Click on the title or any of the section to edit. After you click on the save button a new wheel will be created</string>    
     <string name="help_wheel_types">Click on a wheel of interest to you. To create your own wheel click on the menu + button. You can also edit an existing wheel by clicking on the pencil button on it\'s right or delete an existing wheel by clicking on the x button</string>
@@ -16,7 +16,7 @@
     <string name="welcome_title">Welcome</string>      
     <string name="action_ok">OK</string>
     <string name="action_cancel">Cancel</string>
-    <string name="action_show_progress">Show Progress</string>
+    <string name="action_show_progress">Show History</string>
     <string name="action_help">Help</string>
     <string name="action_save">Save</string>
     <string name="action_edit">Edit</string>
@@ -30,12 +30,15 @@
     <string name="new_wheel_default_Title">Wheel Title</string>
     <string name="message_removed_wheel_success">Removed wheel </string>
     <string name="message_removed_wheel_fail">Oops! Could not remove the wheel</string>
-    <string name="message_values_saved">Wheel Values Saved</string>
+    <string name="message_values_saved">Your values were saved. Visit again at a later time to check how you are doing</string>
+    <string name="message_values_saved_go_progress">Your values were saved. Would you like to view your previously saved values?</string>
+    <string name="message_values_saved_title">Values Saved</string>
     <string name="message_text_empty">Cannot set value to empty text</string>
     <string name="message_text_exceed_characters">Cannot set value to more than</string>
     <string name="message_text_characters">characters</string>
     <string name="appointment_title">When would you like to set the next appointment?</string>
     <string name="appointment_date_reached">Hi, we have an appointment for today. Please think again about the different areas in this wheel. How content do you feel in each area today?</string>       
+    <string name="empty_list_info">You have no history of previously saved values yet</string>
     <string-array name="appointment_options">
         <item>In 10 sec (testing)</item>
         <item>In 2 mins (testing)</item>
