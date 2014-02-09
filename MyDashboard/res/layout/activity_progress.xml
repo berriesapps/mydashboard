@@ -1,25 +1,40 @@
-<LinearLayout
-    	xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WheelProgressActivity" >
+
+    <TextView
+        android:id="@+id/date_saved"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-    	tools:context=".WheelProgressActivity" >
+        android:layout_height="wrap_content"
+        android:background="@color/WheelOuterBackgroundColor"
+        android:padding="5dp"
+        android:text="Empty List Info String Here"
+        android:textSize="18sp" />
+    <com.berries.dashboard.views.WheelGroupView
+        android:id="@+id/wheel_progress_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:background="@color/WheelOuterBackgroundColor"
+        android:padding="1dp" />
+    <TextView
+        android:id="@+id/list_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/WheelOuterBackgroundColor"
+        android:textColor="@color/BlueViolet"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:text="Empty List Info String Here"
+        android:textSize="18sp" />
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/WheelOuterBackgroundColor" >
+    </ListView>
 
-    
-	    <com.berries.dashboard.views.WheelGroupView
-            android:id="@+id/WheelProgressView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:padding="1dp"
-            android:layout_weight="100"
-            android:background="@android:color/white"
-            />
-
-	   <ListView android:id="@android:id/list"
-	       android:layout_width="match_parent" 
-	       android:layout_height="150dp"	       
-	       >
-	   </ListView>
-	   
 </LinearLayout>

@@ -53,16 +53,37 @@ public class AlertDialogUtils {
 	  * @param contentStringId
 	  */
 	public static void showAlert(Context context, int titleStringId, int contentStringId){
+		showAlert(context, titleStringId, null, contentStringId, null);          		
+	}
+
+	 /**
+	  * Creates an AlertDialog with the given title string + content resource ids and shows it on screen.
+	  * The dialog will contain a single "ok" button
+	  * @param context
+	  * @param titleStringId 
+	  * @param contentStringId
+	  */	
+	public static void showAlert(Context context, String titleString, int contentStringId){
+		showAlert(context, -1, titleString, contentStringId, null);
+	}
+	
+	public static void showAlert(Context context, String titleString, int contentStringId, DialogInterface.OnClickListener clickListener){
+		showAlert(context, -1, titleString, contentStringId, clickListener);
+	}
+	
+	private static void showAlert(Context context, int titleStringId, String titleString, int contentStringId, DialogInterface.OnClickListener clickListener){
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setPositiveButton(R.string.action_ok, null);
+		builder.setPositiveButton(R.string.action_ok, clickListener);
 		builder.setMessage(contentStringId);
-		if ( titleStringId != -1 )
+		if ( titleStringId > -1 ){
 			builder.setTitle(titleStringId);
+		}
+		else if ( titleString != null ){
+			builder.setTitle(titleString);
+		}
 		AlertDialog dialog = builder.create();		
 		dialog.show();	            		
 	}
-
-
 	
 	 /**
 	  * Creates an AlertDialog with the given title & content resource ids and shows it on screen.
@@ -84,6 +105,22 @@ public class AlertDialogUtils {
 		dialog.show();	            		
 	}
 	
-	
+	 /**
+	  * Creates an AlertDialog with the given title string & content resource ids and shows it on screen.
+	  * The dialog will contain "ok" and "cancel" buttons
+	  * @param context
+	  * @param titleString
+	  * @param contentStringId
+	  */
+	public static void showAlertWithCancel(Context context, String titleString, int contentStringId, DialogInterface.OnClickListener clickListener){
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setCancelable(true);
+		builder.setPositiveButton(R.string.action_ok, clickListener);
+		builder.setNegativeButton(R.string.action_cancel, clickListener );
+		builder.setMessage(contentStringId);
+		builder.setTitle(titleString);
+		AlertDialog dialog = builder.create();		
+		dialog.show();	            		
+	}	
 	
 }

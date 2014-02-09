@@ -49,6 +49,7 @@ public class Wheel implements Parcelable {
 	private String mTitle;
 	private List<WheelItem> mItems;
 	private List<PieceAngles> mAngles; 
+	private long mTimestamp;
 	
 	/**
 	 * Create a new Wheel with the given type id, title and items
@@ -76,6 +77,19 @@ public class Wheel implements Parcelable {
 		calculateAngles();		
 	}
 
+	public float calcAverageValue(){
+		int total = 0;
+		
+		if ( mItems==null || mItems.size()== 0){
+			return 0;
+		}
+		
+		for (int i=0;i<mItems.size(); i++){
+			total = total + mItems.get(i).getValue();
+		}
+		
+		return total / mItems.size();
+	}
 	
 	/** @param id The wheel type id	 */
 	public void setTypeId(int id){
@@ -86,8 +100,14 @@ public class Wheel implements Parcelable {
 		return mTypeId;
 	}
 	
-	
-	
+	/** @param id the timestamp of the date/time that the specific values where saved */ 
+	public void setTimeSaved(long t){
+		mTimestamp = t;
+	}
+	/** @return long the timestamp of the date/time that the specific values where saved */
+	public long getTimeSaved(){
+		return mTimestamp;
+	}
 	
 	/** @param title The wheel title	 */	
 	public void setTitle(String title){

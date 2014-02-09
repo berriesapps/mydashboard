@@ -20,9 +20,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*/
+ */
 package com.berries.dashboard.db;
-
 
 import com.berries.dashboard.db.tables.WheelTypesTable;
 import com.berries.dashboard.db.tables.WheelValuesTable;
@@ -38,7 +37,6 @@ public class WheelDBManager extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "mydashboarddb";
 	private static final int DATABASE_VERSION = 1;
 
-
 	public WheelDBManager(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -51,7 +49,7 @@ public class WheelDBManager extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int arg1, int arg2) {
-		// First iteration - do nothing		
+		// First iteration - do nothing
 	}
 
 }

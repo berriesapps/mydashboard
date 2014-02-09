@@ -57,11 +57,11 @@ import android.widget.Toast;
 
 /**
  * <p> 
- * The Activity displays a grid of wheels. User can click on a wheel to display it's values, 
+ * The Activity displays a grid of wheels (Dashboard). User can click on a wheel to display it's values, 
  * or click on edit/remove/add new buttons to manage the wheels
  * </p>
  */
-public class WheelTypesManagerActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor>, 
+public class DashboardActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor>, 
 																		   DialogInterface.OnClickListener,
 																	       WheelTypeClickListener {
 	 

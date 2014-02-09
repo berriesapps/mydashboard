@@ -65,7 +65,7 @@ import android.graphics.Color;
 public class WheelDragView extends View  {
 
 	private static final int TOTAL_CIRCLES = 22;
-    private static final long ANIM_DURATION_MSEC = 1000;
+    private static final long ANIM_DURATION_MSEC = 500;
     private static final int TEXT_SIZE = 19; // TODO move this to resources
     
 	private Path  mTextPath;
@@ -179,7 +179,7 @@ public class WheelDragView extends View  {
             //Draw the colored highlight for this piece in the pie
             int color = item.getColor();
             int alpha = 200;
-            if ( itemIndex == mSelectedItemIndex ){
+            if ( mDraggable && (itemIndex == mSelectedItemIndex) ){
             	alpha = 120;
             }   
             color = Color.argb(alpha, Color.red(color), Color.green(color), Color.blue(color));
