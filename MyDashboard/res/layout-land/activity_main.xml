@@ -1,19 +1,14 @@
-<LinearLayout
-    	xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".WheelViewActivity" >
+
+    <com.berries.dashboard.views.WheelGroupView
+        android:id="@+id/wheel_group_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    	tools:context=".WheelViewActivity" >
- 
-    
-	    <com.berries.dashboard.views.WheelGroupView
-            android:id="@+id/WheelGroupView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            />
-	    
-	    
-	    	
+        android:background="@android:color/white" />
+
 </LinearLayout>
