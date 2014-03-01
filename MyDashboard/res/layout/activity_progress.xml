@@ -11,30 +11,28 @@
         android:layout_height="wrap_content"
         android:background="@color/WheelOuterBackgroundColor"
         android:padding="5dp"
-        android:text="Empty List Info String Here"
+        android:textColor="@color/TextColor"
+        android:textStyle="bold"
         android:textSize="18sp" />
+
     <com.berries.dashboard.views.WheelGroupView
         android:id="@+id/wheel_progress_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="100"
-        android:background="@color/WheelOuterBackgroundColor"
         android:padding="1dp" />
+
     <TextView
-        android:id="@+id/list_title"
+        android:id="@android:id/empty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/WheelOuterBackgroundColor"
-        android:textColor="@color/BlueViolet"
-        android:textStyle="bold"
         android:padding="5dp"
-        android:text="Empty List Info String Here"
+        android:text="@string/empty_list_info"
         android:textSize="18sp" />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/WheelOuterBackgroundColor" >
-    </ListView>
+        android:layout_height="150dp" />
 
 </LinearLayout>

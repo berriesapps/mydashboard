@@ -35,7 +35,7 @@ public class WheelDBManager extends SQLiteOpenHelper {
 	@SuppressWarnings("unused")
 	private static final String TAG = WheelDBManager.class.getSimpleName();
 	private static final String DATABASE_NAME = "mydashboarddb";
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	public WheelDBManager(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

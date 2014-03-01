@@ -136,8 +136,9 @@ public class WheelBackgroundView extends View  {
         mPaint.setColor(mOuterBgColor);
         canvas.drawCircle(centerX, centerY, 32*diskWidth, mPaint);        
 
-        // Draw the Items within the wheel         
-        for (int itemIndex = 0; itemIndex < mWheel.getNumOfItems(); itemIndex++ ) {
+        // Draw the Items within the wheel  
+        int numOfItems = mWheel==null?0:mWheel.getNumOfItems();
+        for (int itemIndex = 0; itemIndex < numOfItems; itemIndex++ ) {
             WheelItem it = mWheel.getItemAt(itemIndex);
             int startAngle = mWheel.getStartAngleAt(itemIndex);
             int endAngle = mWheel.getEndAngleAt(itemIndex);
@@ -178,12 +179,14 @@ public class WheelBackgroundView extends View  {
     
     
     private void calcMaxTextWidth(){
-    	if ( mWheel != null & mWheel.getNumOfItems()>0 ){
-            float diskWidth = Math.min(mBounds.width(),mBounds.height())/TOTAL_CIRCLES;    		
-            float textRadius = (float)(10.2 * diskWidth);
-            float circlePerimeter = 2 * (float)Math.PI * textRadius; 
-            float offsetDist = circlePerimeter * 4 / 360 ;
-    		mTextMaxWidth =   circlePerimeter / mWheel.getNumOfItems()  - offsetDist;
+    	if ( mWheel != null ){
+    		if ( mWheel.getNumOfItems()>0 ){
+	            float diskWidth = Math.min(mBounds.width(),mBounds.height())/TOTAL_CIRCLES;    		
+	            float textRadius = (float)(10.2 * diskWidth);
+	            float circlePerimeter = 2 * (float)Math.PI * textRadius; 
+	            float offsetDist = circlePerimeter * 4 / 360 ;
+	    		mTextMaxWidth =   circlePerimeter / mWheel.getNumOfItems()  - offsetDist;
+    		}
     	}
     }
 }

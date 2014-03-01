@@ -25,6 +25,7 @@ THE SOFTWARE.
 package com.berries.dashboard.adapters;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.database.Cursor;
@@ -32,6 +33,7 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.View;
 import android.widget.TextView;
 
+import com.berries.dashboard.R;
 import com.berries.dashboard.db.tables.Contract;
 
 /**
@@ -62,20 +64,25 @@ public class WheelValuesBinder implements SimpleCursorAdapter.ViewBinder {
 			listItemView.setTag(holder);
 
 			// set the text to be displayed for this list item
-			String formattedDateString = getFormattedDate(holder.dateSaved);
-			listItemView.setText("Saved on: "+formattedDateString);
+			StringBuilder formattedDate = new StringBuilder(view.getResources().getString(R.string.click_on));
+			formattedDate.append(getFormattedDate(holder.dateSaved));
+			listItemView.setText(formattedDate);
 			return true;
 		}
 
 		return false;
 	}
 
-	public static String getFormattedDate(long timestamp) {
-		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-		DateFormat timeFormat = DateFormat.getTimeInstance(DateFormat.SHORT);
+	public static CharSequence getFormattedDate(long timestamp) {
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+		DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 		Date date = new Date();
 		date.setTime(timestamp);
-		return dateFormat.format(date) + " " + timeFormat.format(date);
+		StringBuilder formattedDate = new StringBuilder();
+		formattedDate.append(dateFormat.format(date));
+		formattedDate.append(" ");
+		formattedDate.append(timeFormat.format(date));
+		return formattedDate;
 	}
 
 	/**

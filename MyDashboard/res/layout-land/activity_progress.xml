@@ -5,42 +5,40 @@
     android:orientation="horizontal"
     tools:context=".WheelProgressActivity" >
 
-    <com.berries.dashboard.views.WheelGroupView
-        android:id="@+id/wheel_progress_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="100"
-        android:background="@android:color/white" />
-
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/date_saved"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="5dp"
-            android:text="@string/empty_list_info"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/list_title"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/WheelOuterBackgroundColor"
             android:padding="5dp"
+            android:textColor="@color/TextColor"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="@string/empty_list_info"
-            android:textColor="@color/BlueViolet"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:visibility="gone" />
 
         <ListView
             android:id="@android:id/list"
-            android:layout_width="150dp"
-            android:layout_height="match_parent" >
-        </ListView>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <com.berries.dashboard.views.WheelGroupView
+        android:id="@+id/wheel_progress_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white" />
 
 </LinearLayout>

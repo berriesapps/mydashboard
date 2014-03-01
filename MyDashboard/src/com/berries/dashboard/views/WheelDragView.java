@@ -170,7 +170,8 @@ public class WheelDragView extends View  {
         float centerY = mBounds.centerY();
         mDiskWidth = Math.min(mBounds.width(),mBounds.height())/TOTAL_CIRCLES;
 
-        for (int itemIndex = 0; itemIndex <mWheel.getNumOfItems(); itemIndex++ ) {
+        int numOfItems = (mWheel==null)?0:mWheel.getNumOfItems();
+        for (int itemIndex = 0; itemIndex <numOfItems; itemIndex++ ) {
             WheelItem item = mWheel.getItemAt(itemIndex);
             int startAngle = mWheel.getStartAngleAt(itemIndex);
             int endAngle = mWheel.getEndAngleAt(itemIndex);

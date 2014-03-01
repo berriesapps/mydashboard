@@ -10,7 +10,7 @@
     <string name="help_set_values">Think about the different items appearing on this wheel. How content do you feel in each area? Drag each area to mark from 1 to 10.</string>
     <string name="help_edit_wheel">Click on the title or any of the section to edit. Don\'t forget to save after you are done</string>    
 	<string name="help_add_new_wheel">Click on the title or any of the section to edit. After you click on the save button a new wheel will be created</string>    
-    <string name="help_wheel_types">Click on a wheel of interest to you. To create your own wheel click on the menu + button. You can also edit an existing wheel by clicking on the pencil button on it\'s right or delete an existing wheel by clicking on the x button</string>
+    <string name="help_wheel_types">Click on a wheel of interest to you.\nTo create your own wheel click on the menu "+" button.\nLong click on a wheel to see an option editing/deleting the wheel</string>
     <string name="help_title">Help</string>        
     <string name="help_not_available">No help available for this item</string>
     <string name="welcome_title">Welcome</string>      
@@ -38,7 +38,10 @@
     <string name="message_text_characters">characters</string>
     <string name="appointment_title">When would you like to set the next appointment?</string>
     <string name="appointment_date_reached">Hi, we have an appointment for today. Please think again about the different areas in this wheel. How content do you feel in each area today?</string>       
+    <string name="average">Average Happiness:\t</string>
     <string name="empty_list_info">You have no history of previously saved values yet</string>
+    <string name="click_on">View wheel saved on:\t</string>
+    <string name="wheel_title">Wheel Title:\t</string>
     <string-array name="appointment_options">
         <item>In 10 sec (testing)</item>
         <item>In 2 mins (testing)</item>

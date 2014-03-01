@@ -1,13 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item 
+    <item
         android:id="@+id/edit_wheel"
         android:title="@string/action_edit">
-        
     </item>
-    <item 
+    <item
         android:id="@+id/remove_wheel"
-		android:title="@string/action_remove">        
-       
+        android:title="@string/action_remove">
     </item>
+
 </menu>

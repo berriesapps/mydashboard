@@ -142,6 +142,7 @@
  <color name="Black">#000000</color>
  <color name="WheelBackgroundColor">#50EEE8AA</color>
  <color name="WheelOuterBackgroundColor">#28F4A460</color>
+ <color name="TextColor">#400080</color>
 </resources>      
     <!--  
     <color name="red">#ffff0000</color>

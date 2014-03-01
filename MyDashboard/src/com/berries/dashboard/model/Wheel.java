@@ -122,7 +122,7 @@ public class Wheel implements Parcelable {
 	
 	/** @return int the number of Items */
 	public int getNumOfItems(){
-		return mItems.size();
+		return mItems==null?0:mItems.size();
 	}
 	
 	/**  
@@ -130,7 +130,7 @@ public class Wheel implements Parcelable {
 	 * @return WheelItem the item at the given index
 	 */
 	public WheelItem getItemAt(int index){
-		return mItems.get(index);
+		return mItems==null?null:mItems.get(index);
 	}
 	
 	/** reset all wheel item values to the default value */

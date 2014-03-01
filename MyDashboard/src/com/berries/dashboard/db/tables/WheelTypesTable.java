@@ -49,7 +49,11 @@ public class WheelTypesTable {
 	private static final String DATABASE_INSERT3 = "insert into "+ TABLE_NAME + " (title, item0, item1, item2, item3, item4, item5, item6, item7, count)" +
 			" VALUES ('My Mood Today', 'Happy', 'Optimistic', 'Motivated', 'Confident', 'Excited','Playful','Loved', 'Relaxed', 8);";
 	private static final String DATABASE_INSERT4 = DB_INSERT_CMD +
-			" VALUES ('Working Skills', 'Communication', 'Fast-Learning', 'Team Player', 'Creativity', 'Problem Solving', 'Task Management', 'Independence', '', 7);";
+			" VALUES ('Working Skills', 'Communication', 'Fast-Learning', 'Team Player', 'Creative Thinking', 'Problem Solving', 'Task Management', 'Motivation', 'Independence', 8);";
+	private static final String DATABASE_INSERT5 = DB_INSERT_CMD +
+			" VALUES ('Mobile Developer Skills', 'Android', 'Java', 'iOS', 'ObjectiveC', 'C/C++', 'Multithreading', 'Design Patterns', 'HTML5/CSS/Javascript', 8);";
+	private static final String DATABASE_INSERT6 = DB_INSERT_CMD +
+			" VALUES ('Mobile App Health', 'OO Design', 'Short and Clear Code','Documentation', 'Input Validation','Thread Happy', 'Performance', 'Memory Usage',  'Battery Consumption', 8);";
 		
 
 	public static void onCreate(SQLiteDatabase database) {
@@ -66,6 +70,8 @@ public class WheelTypesTable {
 		database.execSQL(DATABASE_INSERT2);
 		database.execSQL(DATABASE_INSERT3);	
 		database.execSQL(DATABASE_INSERT4);	
+		database.execSQL(DATABASE_INSERT5);
+		database.execSQL(DATABASE_INSERT6);
 	}
 
 

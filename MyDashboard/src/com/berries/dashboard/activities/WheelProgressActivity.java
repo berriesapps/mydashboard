@@ -23,7 +23,7 @@ THE SOFTWARE.
  */
 package com.berries.dashboard.activities;
 
-import android.R.color;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -60,8 +60,9 @@ public class WheelProgressActivity extends FragmentActivity implements
 	private WheelGroupView mWheelGroupView;
 	private SimpleCursorAdapter mAdapter;
 	private ListView mList;
-	private TextView mDateSavedText;
-	private TextView mListTitle;
+	private TextView mInfoView;
+	private static final String NEW_LINE = "\n";
+	private static final String SEPARATOR = ":\t";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,29 +90,36 @@ public class WheelProgressActivity extends FragmentActivity implements
 			WheelValuesConnector.setWheelValuesToLastSaved(this, wheel);
 		}
 		mWheelGroupView.setWheel(wheel);
-		mDateSavedText = (TextView) this.findViewById(R.id.date_saved);
-		StringBuilder infoText = new StringBuilder(wheel.getTitle());
-		if (numOfPreviousSaved > 0) {
-			infoText.append("\nAverage: ");
-			infoText.append(wheel.calcAverageValue());
-			infoText.append("\n");
-			infoText.append(WheelValuesBinder.getFormattedDate(wheel.getTimeSaved()));
-		}
-		mDateSavedText.setText(infoText.toString());
-		mDateSavedText.setBackgroundColor(getResources().getColor(
-				R.color.WheelOuterBackgroundColor));
-		mListTitle = (TextView) findViewById(R.id.list_title);
-		mListTitle.setText("History: ");
-		mListTitle.setTextColor(color.white);
+		mInfoView = (TextView) this.findViewById(R.id.date_saved);
+		CharSequence infoText = generateInfoText(wheel, numOfPreviousSaved > 0);
+		mInfoView.setText(infoText.toString());
+		mInfoView.setVisibility(View.VISIBLE);
+	
+		TextView emptyListText = (TextView)findViewById(android.R.id.empty);
 		if (numOfPreviousSaved < 2) {
 			mList.setVisibility(View.GONE);
+			emptyListText.setVisibility(View.VISIBLE);
 		} else {
-			// mDateSavedText.setText();
 			mList.setScrollBarStyle(ListView.SCROLLBARS_OUTSIDE_INSET);
 			mList.setOnItemClickListener(this);
 			mList.setAdapter(mAdapter);
+			emptyListText.setVisibility(View.GONE);			
 			loadWheels();
 		}
+	}
+
+	private CharSequence generateInfoText(Wheel wheel, boolean full) {
+		Resources res = getResources();
+		StringBuilder infoText = new StringBuilder();
+		infoText.append(wheel.getTitle());
+		if ( full ){
+			infoText.append(SEPARATOR);
+			infoText.append(WheelValuesBinder.getFormattedDate(wheel.getTimeSaved()));
+			infoText.append(NEW_LINE);
+			infoText.append(res.getString(R.string.average));
+			infoText.append(wheel.calcAverageValue());
+		}
+		return infoText;
 	}
 
 	private void loadWheels() {
@@ -154,10 +162,9 @@ public class WheelProgressActivity extends FragmentActivity implements
 				nextAppointmentWheel.getItemAt(i).setValue(
 						valueHolder.values[i]);
 			}
-			String title = mWheelGroupView.getWheel().getTitle();
-			String text = title + "\n"
-					+ WheelValuesBinder.getFormattedDate(valueHolder.dateSaved);
-			mDateSavedText.setText(text);
+			nextAppointmentWheel.setTimeSaved(valueHolder.dateSaved);
+			CharSequence infoText = generateInfoText(nextAppointmentWheel, true);
+			mInfoView.setText(infoText);
 			// move to the next appointment wheel values using animation
 			mWheelGroupView.animateTo(nextAppointmentWheel);
 		}

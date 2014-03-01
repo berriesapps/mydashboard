@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name="com.berries.dashboard.activities.WheelProgressActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
             </intent-filter>
         </activity>

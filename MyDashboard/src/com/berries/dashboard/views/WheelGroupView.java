@@ -80,7 +80,6 @@ public class WheelGroupView extends ViewGroup implements View.OnClickListener,
 	private static final int INTERNAL_PADDING = 40;  
 	private static final int TEXT_SIZE = 20;
 	private static final int EDIT_TEXT_SIZE = 16;
-	private static final int TEXT_COLOR = Color.rgb(64, 0, 128);
 	private static final int MAX_NUM_OF_CHARACTERS = 20;
 
 
@@ -444,9 +443,10 @@ public class WheelGroupView extends ViewGroup implements View.OnClickListener,
 	
 	// initialize the text views	
 	private void initTextViews(Context context){
+		int textColor = getResources().getColor(R.color.TextColor);
 		mWheelTitleView = new TextView(context);
 		mWheelTitleView.setTextSize(TEXT_SIZE);
-		mWheelTitleView.setTextColor(TEXT_COLOR);
+		mWheelTitleView.setTextColor(textColor);
 		mWheelTitleView.setTypeface(mWheelTitleView.getTypeface(), Typeface.BOLD);
 		mWheelTitleView.setOnClickListener(this);
 		mWheelTitleView.setTag(ViewTag.TITLE);
@@ -454,7 +454,7 @@ public class WheelGroupView extends ViewGroup implements View.OnClickListener,
 		
 		mWheelTitleEdit = new EditText(context);
 		mWheelTitleEdit.setTextSize(EDIT_TEXT_SIZE);
-		mWheelTitleEdit.setTextColor(TEXT_COLOR);
+		mWheelTitleEdit.setTextColor(textColor);
 		mWheelTitleEdit.setImeActionLabel(context.getResources().getString(R.string.action_done), EditorInfo.IME_ACTION_DONE);
 		mWheelTitleEdit.setInputType(EditorInfo.TYPE_CLASS_TEXT);
 		mWheelTitleEdit.setImeOptions(EditorInfo.IME_ACTION_DONE);		
@@ -464,13 +464,13 @@ public class WheelGroupView extends ViewGroup implements View.OnClickListener,
 
     	mWheelItemView= new TextView(context);
     	mWheelItemView.setTextSize(TEXT_SIZE);
-    	mWheelItemView.setTextColor(TEXT_COLOR);
+    	mWheelItemView.setTextColor(textColor);
     	mWheelItemView.setOnClickListener(this);
 		mWheelItemView.setTag(ViewTag.ITEM);
 
     	mWheelItemEdit = new EditText(context);
     	mWheelItemEdit.setTextSize(EDIT_TEXT_SIZE);
-    	mWheelItemEdit.setTextColor(TEXT_COLOR);
+    	mWheelItemEdit.setTextColor(textColor);
     	mWheelItemEdit.setImeActionLabel(context.getResources().getString(R.string.action_done), EditorInfo.IME_ACTION_DONE);
     	mWheelItemEdit.setInputType(EditorInfo.TYPE_CLASS_TEXT);
     	mWheelItemEdit.setImeOptions(EditorInfo.IME_ACTION_DONE);		
